@@ -3,6 +3,10 @@
   "displayName": "create_chai_spec",
   "description": "create chai spec of file",
   "publisher": "lucca",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luccaflower/create_chai_spec_vscode.git"    
+  },
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.56.0"
