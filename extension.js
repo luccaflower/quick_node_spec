@@ -1,7 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
-const specInWorkSpace = require('./src/specInWorkSpace');
+const specFacade = require('./src/specFacade');
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -17,7 +17,7 @@ function activate(context) {
 		if (currentFile.isUntitled ) {
 			vscode.window.showErrorMessage("Current file must be saved on disk")
 		} else {
-			specInWorkSpace.createInWorkspace(currentFile.uri)
+			specFacade.createSpec(currentFile.uri)
 		}
 	});
 
