@@ -1,6 +1,6 @@
 const Utils = require('vscode-uri').Utils;
 
-function service(targetPath) {
+function service(testPath, sourcePath) {
     const parse = uri => {
         if (fileExtention(uri) != ".js") {
             throw "Must be a JavaScript file"
@@ -8,7 +8,7 @@ function service(targetPath) {
     
         return {
             name: fileName(uri),
-            path: directoryName(uri),
+            path: testDirectoryName(uri),
         }
     }
 
@@ -16,8 +16,8 @@ function service(targetPath) {
         return Utils.extname(uri);
     }
     
-    function directoryName(uri) {
-        return Utils.joinPath(Utils.dirname(uri), targetPath).fsPath
+    function testDirectoryName(uri) {
+        return Utils.joinPath(Utils.dirname(uri), testPath).fsPath
     }
     
     function fileName(uri) {

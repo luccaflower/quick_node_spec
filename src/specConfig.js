@@ -1,4 +1,6 @@
 exports.config = {
     ext: ".spec.js",
-    path: "../test/"
+    relativePath: "../",
+    testFolder: "test/",
+    sourceFolder: "src/"
 }

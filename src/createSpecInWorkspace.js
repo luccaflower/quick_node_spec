@@ -1,16 +1,20 @@
 const specService = require('./spec')
-const fileFacade = require('./file')
+const fileFacade = require('./file');
+const { config } = require('./specConfig');
 
 function facade(providers) {
 
     const create = document => {
         const parsedDocument = providers
             .documentParser
-            .service(providers.config.path)
+            .service(
+                providers.config.relativePath + providers.config.testFolder)
             .parse(document);
         const spec = specService
             .service(providers.spec)
-            .create(parsedDocument.name, providers.config.path);
+            .create(
+                parsedDocument.name, 
+                providers.config.relativePath + providers.config.sourceFolder);
         const dataStore = fileFacade.service(providers.store);
         const file = {
             name: fileName(spec, providers.config.ext),
