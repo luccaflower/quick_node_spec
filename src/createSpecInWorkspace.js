@@ -1,6 +1,5 @@
 const specService = require('./spec')
-const fileFacade = require('./file');
-const { config } = require('./specConfig');
+const fileFacade = require('./file')
 
 function facade(providers) {
 
