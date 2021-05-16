@@ -1,10 +1,6 @@
 const service = store => {
     const save = fileData => {
-        store.createFile({
-            path: fileData.path,
-            name: fileData.name,
-            content: fileData.content
-        })
+        store.createFile(fileData)
     }
     return {
         save: save

@@ -23,13 +23,14 @@ const facade = providers => {
         dataStore.save(file);
         providers.view.show(file.path + file.name);
     }
+
+    const fileName = (spec, ext) => {
+        return spec.name + ext;
+    }
+
     return {
         create: create
     }
 }
 
 exports.facade = facade
-
-const fileName = (spec, ext) => {
-    return spec.name + ext;
-}
