@@ -1,6 +1,6 @@
 const vscode = require('vscode');
 
-function show(file) {
+const show = file => {
     const testColumn = columnBeside()
     vscode.window.showTextDocument(
         vscode.Uri.file(file), 

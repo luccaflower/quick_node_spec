@@ -1,7 +1,7 @@
 const specService = require('./spec')
 const fileFacade = require('./file')
 
-function facade(providers) {
+const facade = providers => {
 
     const create = document => {
         const parsedDocument = providers
@@ -30,6 +30,6 @@ function facade(providers) {
 
 exports.facade = facade
 
-function fileName(spec, ext) {
+const fileName = (spec, ext) => {
     return spec.name + ext;
 }

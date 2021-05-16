@@ -1,4 +1,4 @@
-function service(store) {
+const service = store => {
     const save = fileData => {
         store.createFile({
             path: fileData.path,

@@ -1,4 +1,4 @@
-function content(name, relativePath) {
+const content = (name, relativePath) => {
     return `\
 const ${name} = require('${relativePath}${name}')
 const expect = require('chai').expect

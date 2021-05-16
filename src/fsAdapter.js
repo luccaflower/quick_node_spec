@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-function createFile(file) {
+const createFile = file => {
     if(!fs.existsSync(file.path)) {
         fs.mkdirSync(file.path)
     }

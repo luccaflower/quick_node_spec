@@ -1,5 +1,4 @@
-
-function service(spec) {
+const service = spec => {
     const create = (name, relativePath) => {
         return {
             name: name,

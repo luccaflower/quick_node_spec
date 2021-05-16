@@ -1,6 +1,6 @@
 const Utils = require('vscode-uri').Utils;
 
-function service(testPath, sourcePath) {
+const service = testPath => {
     const parse = uri => {
         if (fileExtention(uri) != ".js") {
             throw "Must be a JavaScript file"
