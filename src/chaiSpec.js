@@ -1,6 +1,6 @@
 function content(name, relativePath) {
     return `\
-const ${name} = require('./${relativePath}${name}')
+const ${name} = require('${relativePath}${name}')
 const expect = require('chai').expect
 
 describe('${name}', () => {
