@@ -12,19 +12,19 @@ const service = testPath => {
         }
     }
 
-    function fileExtention(uri) {
+    const fileExtention = uri => {
         return Utils.extname(uri);
     }
     
-    function testDirectoryName(uri) {
+    const testDirectoryName = uri => {
         return Utils.joinPath(Utils.dirname(uri), testPath).fsPath
     }
     
-    function fileName(uri) {
+    const fileName = uri => {
         return withNoFileExt(Utils.basename(uri));
     }
     
-    function withNoFileExt(file) {
+    const withNoFileExt = file => {
         return file.split('.')[0]    
     }
 
