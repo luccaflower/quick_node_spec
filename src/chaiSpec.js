@@ -1,11 +1,6 @@
-function spec(name) {
-    return specFrom(name)
-}
-
-
-function specFrom(name) {
+function content(name, relativePath) {
     return `\
-const ${name} = require('./${name}')
+const ${name} = require('./${relativePath}${name}')
 const expect = require('chai').expect
 
 describe('${name}', () => {
@@ -16,4 +11,4 @@ describe('${name}', () => {
 `
 }
 
-exports.spec = spec;
+exports.content = content;

@@ -1,8 +1,14 @@
-const fsAdapter = require('./fsAdapter');
-
-function save(file) {
-    console.log("saving file");
-    fsAdapter.createFile(file.path, file.content)
+function service(store) {
+    const save = fileData => {
+        store.createFile({
+            path: fileData.path,
+            name: fileData.name,
+            content: fileData.content
+        })
+    }
+    return {
+        save: save
+    }
 }
 
-exports.save = save
+exports.service = service

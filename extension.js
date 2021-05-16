@@ -1,7 +1,12 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
-const specFacade = require('./src/specFacade');
+const createSpecInWorkspace = require('./src/createSpecInWorkspace');
+const uri = require('./src/uriParser');
+const view = require('./src/view');
+const fs = require('./src/fsAdapter');
+const chai = require('./src/chaiSpec')
+const cfg = require('./src/specConfig')
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -12,13 +17,23 @@ const specFacade = require('./src/specFacade');
 function activate(context) {
 
 
-	let disposable = vscode.commands.registerCommand('create-chai-spec.create', function () {
-		const currentFile = vscode.window.activeTextEditor.document
-		if (currentFile.isUntitled ) {
-			vscode.window.showErrorMessage("Current file must be saved on disk")
-		} else {
-			specFacade.createSpec(currentFile.uri)
-		}
+	let disposable = vscode.commands.registerCommand(
+		'create-chai-spec.create', 
+		function () {
+			const currentFile = vscode.window.activeTextEditor.document
+			if (currentFile.isUntitled ) {
+				vscode
+					.window
+					.showErrorMessage("Current file must be saved on disk")
+			} else {
+				createSpecInWorkspace.facade({
+					documentParser: uri,
+					view: view,
+					store: fs,
+					spec: chai,
+					config: cfg.config
+				}).create(currentFile.uri)
+			}
 	});
 
 	context.subscriptions.push(disposable);
