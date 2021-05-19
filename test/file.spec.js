@@ -1,15 +1,17 @@
 const file = require('../src/file')
+let inMemoryStore = {}
+const storeMock = require('./storeMock')
 const expect = require('chai').expect
 
 describe('file', () => {
     it('cannot save files with no name', () => {
-        expect(() => file.service(storeMock()).save({
+        expect(() => file.service(storeMock.store(inMemoryStore)).save({
             path: "/",
             content: "",
         })).to.throw("File must have a name")
     })
     it('cannot save files with no path', () => {
-        expect(() => file.service(storeMock()).save({
+        expect(() => file.service(storeMock.store(inMemoryStore)).save({
             name: "name",
             content: ""
         })).to.throw("File must be saved to a path")
@@ -20,8 +22,8 @@ describe('file', () => {
             name: "name",
             path: "/"
         }
-        file.service(storeMock()).save(savedFile)
-        expect(storeMockDict[savedFile.name].content).to.be.empty
+        file.service(storeMock.store(inMemoryStore)).save(savedFile)
+        expect(inMemoryStore[savedFile.name].content).to.be.empty
     })
     it('will save a file to a path', () => {
         const savedFile = {
@@ -29,8 +31,8 @@ describe('file', () => {
             path: "/",
             content: ""
         }
-        file.service(storeMock()).save(savedFile)
-        expect(storeMockDict[savedFile.name].path).to.equal("/")
+        file.service(storeMock.store(inMemoryStore)).save(savedFile)
+        expect(inMemoryStore[savedFile.name].path).to.equal("/")
     })
 
     it('will write content to a file', () => {
@@ -39,26 +41,15 @@ describe('file', () => {
             path: "/",
             content: "content"
         }
-        file.service(storeMock()).save(savedFile)
-        expect(storeMockDict[savedFile.name].content).to.equal("content")
+        file.service(storeMock.store(inMemoryStore)).save(savedFile)
+        expect(inMemoryStore[savedFile.name].content)
+            .to.equal("content")
     })
 
-    after(() => {
-        storeMockDict = {}
+    afterEach(() => {
+        inMemoryStore = {}
     })
 })
 
-let storeMockDict = {}
 
-const storeMock = () => {
-    const createFile = file => {
-        storeMockDict[file.name] = {
-            path: file.path,
-            content: file.content
-        }
-    }
-    return {
-        createFile: createFile
-    }
-}
 

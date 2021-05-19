@@ -1,6 +1,17 @@
+const path = require('path')
+const vscode = require('vscode')
+
+const posixPath = () => {
+    return vscode
+        .workspace
+        .workspaceFolders[0]
+        .uri.fsPath
+        .split(path.sep).join(path.posix.sep)
+}
+
 exports.config = {
-    ext: ".spec.js",
-    relativePath: "../",
-    testFolder: "test/",
-    sourceFolder: "src/"
+    ".js": {
+        ext: ".spec.js",
+        testFolder: posixPath() + "/test/"
+    }
 }

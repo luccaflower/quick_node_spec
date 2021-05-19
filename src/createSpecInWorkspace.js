@@ -6,26 +6,35 @@ const facade = providers => {
     const create = document => {
         const parsedDocument = providers
             .documentParser
-            .service(
-                providers.config.relativePath + providers.config.testFolder)
             .parse(document);
+        const sourceLocation = providers.path.resolve(
+            providers.config.testFolder,
+            parsedDocument.path
+            )
         const spec = specService
             .service(providers.spec)
             .create(
                 parsedDocument.name, 
-                providers.config.relativePath + providers.config.sourceFolder);
-        const dataStore = fileFacade.service(providers.store);
-        const file = {
-            name: fileName(spec, providers.config.ext),
-            content: spec.content,
-            path: parsedDocument.path
-        };
-        dataStore.save(file);
+                sourceLocation);
+        const file = buildFileFrom(
+            fileName(spec, providers.config.ext), 
+            spec, 
+            providers.config.testFolder
+        );
+        fileFacade.service(providers.store).save(file);
         providers.view.show(file.path + file.name);
     }
 
     const fileName = (spec, ext) => {
         return spec.name + ext;
+    }
+
+    const buildFileFrom = (fileName, spec, path) => {
+        return {
+            name: fileName,
+            content: spec.content,
+            path: path + "/"
+        };
     }
 
     return {
@@ -34,3 +43,5 @@ const facade = providers => {
 }
 
 exports.facade = facade
+
+
