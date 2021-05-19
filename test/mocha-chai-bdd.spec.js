@@ -1,4 +1,4 @@
-const chaiSpec = require('../src/chaiSpec')
+const chaiSpec = require('../src/spec-templates/mocha-chai-bdd')
 const expect = require('chai').expect
 
 describe('chaiSpec', () => {

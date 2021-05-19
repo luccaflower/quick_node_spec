@@ -1,6 +1,6 @@
 const file = require('../src/file')
 let inMemoryStore = {}
-const storeMock = require('./storeMock')
+const storeMock = require('./store-mock')
 const expect = require('chai').expect
 
 describe('file', () => {

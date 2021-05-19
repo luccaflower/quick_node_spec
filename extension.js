@@ -1,13 +1,13 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
-const createSpecInWorkspace = require('./src/createSpecInWorkspace');
-const uri = require('./src/uriParser');
+const createSpecInWorkspace = require('./src/create-spec-in-workspace');
+const uri = require('./src/uri-parser');
 const uriUtils = require('vscode-uri').Utils;
-const view = require('./src/vscodeView');
-const fs = require('./src/fsAdapter');
-const chai = require('./src/chaiSpec')
-const cfg = require('./src/specConfig')
+const view = require('./src/vscode-view');
+const fs = require('./src/fs-adapter');
+const chai = require('./src/spec-templates/mocha-chai-bdd')
+const cfg = require('./src/config')
 const path = require('./src/path')
 
 // this method is called when your extension is activated

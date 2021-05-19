@@ -1,6 +1,6 @@
-const createSpecInWorkspace = require('../src/createSpecInWorkspace')
+const createSpecInWorkspace = require('../src/create-spec-in-workspace')
 let inMemoryStore = {}
-const storeMock = require('./storeMock')
+const storeMock = require('./store-mock')
 const pathResolver = require('../src/path')
 const expect = require('chai').expect
 
