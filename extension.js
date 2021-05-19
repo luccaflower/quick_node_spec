@@ -23,8 +23,10 @@ function activate(context) {
 		'create-chai-spec.create', 
 		() => {
 			const currentFile = vscode.window.activeTextEditor.document
-			const config = cfg.config[uriUtils.extname(currentFile.uri)]
-			const template = specs[cfg.config['.js'].template]
+			const fileExt = uriUtils.extname(currentFile.uri);
+			console.log("File extention: " + fileExt);
+			const config = cfg.config[fileExt]
+			const template = specs.templates[fileExt][config.template]
 			if (currentFile.isUntitled ) {
 				vscode
 					.window

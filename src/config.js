@@ -14,5 +14,10 @@ exports.config = {
         ext: ".spec.js",
         testFolder: posixPath() + "/test/",
         template: "mocha-chai-bdd"
+    },
+    ".ts": {
+        ext: ".spec.ts",
+        testFolder: posixPath() + "/test/",
+        template: "mocha-chai-bdd"
     }
 }
