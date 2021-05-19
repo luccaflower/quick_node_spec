@@ -1,13 +1,13 @@
 {
   "name": "create-chai-spec",
   "displayName": "create_chai_spec",
-  "description": "create chai spec of file",
+  "description": "create chai spec from file",
   "publisher": "lucca-flower",
   "repository": {
     "type": "git",
     "url": "https://github.com/luccaflower/create_chai_spec_vscode.git"
   },
-  "version": "0.0.3",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.56.0"
   },
