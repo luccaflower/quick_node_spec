@@ -9,7 +9,7 @@ const name = "test"
 const ext = ".js"
 const specExt = ".spec.js"
 
-describe('createSpecInWorkspace', () => {
+describe('create-spec-in-workspace', () => {
     it('creates a file from a document', () => {
         createSpecInWorkspace.facade(providersMock())
             .create(path + name + ext)
