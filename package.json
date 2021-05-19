@@ -24,6 +24,44 @@
         "command": "quick-node-spec.create",
         "title": "Create spec file"
       }
+    ],
+    "configuration": [
+      {
+        "title": "Quick Node Spec Configuration",
+        "properties": {
+          "quick-node-spec.testFolder": {
+            "type": "string",
+            "default": "${workspaceFolder}/test",
+            "description": "Test specifications are saved to this folder."
+          },
+          "quick-node-spec.javascript.template": {
+            "type": "string",
+            "default": "mocha-chai-bdd",
+            "enum": [
+              "mocha-chai-bdd"
+            ],
+            "description": "Template to use for the test specification"
+          },
+          "quick-node-spec.javascript.ext": {
+            "type": "string",
+            "default": ".spec.js",
+            "description": "File extention to append to the test specification file"
+          },
+          "quick-node-spec.typescript.template": {
+            "type": "string",
+            "default": "mocha-chai-bdd",
+            "enum": [
+              "mocha-chai-bdd"
+            ],
+            "description": "Template to use for the test specification"
+          },
+          "quick-node-spec.typescript.ext": {
+            "type": "string",
+            "default": ".spec.ts",
+            "description": "File extention to append to the test specification file"
+          }
+        }
+      }
     ]
   },
   "scripts": {
@@ -45,6 +83,7 @@
   },
   "dependencies": {
     "chai": "^4.3.4",
-    "vscode-uri": "^3.0.2"
+    "vscode-uri": "^3.0.2",
+    "vscode-variables": "^0.1.3"
   }
 }

@@ -1,23 +1,26 @@
 const path = require('path')
 const vscode = require('vscode')
+const vscodeVariables = require('vscode-variables')
 
-const posixPath = () => {
-    return vscode
-        .workspace
-        .workspaceFolders[0]
-        .uri.fsPath
+const posixPath = pathFromConfig => {
+    return pathFromConfig
         .split(path.sep).join(path.posix.sep)
 }
 
+const configurations = () => {
+    return vscode.workspace.getConfiguration("quick-node-spec")
+}
+
+
 exports.config = {
     ".js": {
-        ext: ".spec.js",
-        testFolder: posixPath() + "/test/",
-        template: "mocha-chai-bdd"
+        ext: configurations().javascript.ext,
+        testFolder: posixPath(vscodeVariables(configurations().testFolder)),
+        template: configurations().javascript.template
     },
     ".ts": {
-        ext: ".spec.ts",
-        testFolder: posixPath() + "/test/",
-        template: "mocha-chai-bdd"
+        ext: configurations().typescript.ext,
+        testFolder: posixPath(vscodeVariables(configurations().testFolder)),
+        template: configurations().typescript.template
     }
 }

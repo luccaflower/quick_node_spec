@@ -57,7 +57,6 @@ function activate(context) {
 
 	context.subscriptions.push(disposable);
 }
-
 // this method is called when your extension is deactivated
 function deactivate() {}
 
