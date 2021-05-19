@@ -1,6 +1,6 @@
 const content = (name, relativePath) => {
     return `\
-import ${name} from '${relativePath}${name}'
+import * as ${name} from '${relativePath}${name}'
 import { expect } from "chai"
 
 describe('${name}', () => {
