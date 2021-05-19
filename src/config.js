@@ -12,6 +12,7 @@ const posixPath = () => {
 exports.config = {
     ".js": {
         ext: ".spec.js",
-        testFolder: posixPath() + "/test/"
+        testFolder: posixPath() + "/test/",
+        template: "mocha-chai-bdd"
     }
 }

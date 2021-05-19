@@ -6,9 +6,9 @@ const uri = require('./src/uri-parser');
 const uriUtils = require('vscode-uri').Utils;
 const view = require('./src/vscode-view');
 const fs = require('./src/fs-adapter');
-const chai = require('./src/spec-templates/mocha-chai-bdd')
 const cfg = require('./src/config')
 const path = require('./src/path')
+const specs = require('./src/spec-templates/specs')
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -24,6 +24,7 @@ function activate(context) {
 		() => {
 			const currentFile = vscode.window.activeTextEditor.document
 			const config = cfg.config[uriUtils.extname(currentFile.uri)]
+			const template = specs[cfg.config['.js'].template]
 			if (currentFile.isUntitled ) {
 				vscode
 					.window
@@ -34,13 +35,19 @@ function activate(context) {
 				vscode
 					.window
 					.showErrorMessage("File format not supported")
+				return
+			}
+			if (!template) {
+				vscode
+					.window
+					.showErrorMessage("Specification template not found")
 			}
 
 			createSpecInWorkspace.facade({
 				documentParser: uri,
 				view: view,
 				store: fs,
-				spec: chai,
+				spec: template,
 				config: config,
 				path: path
 			}).create(currentFile.uri)
