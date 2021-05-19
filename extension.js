@@ -20,7 +20,7 @@ function activate(context) {
 
 
 	let disposable = vscode.commands.registerCommand(
-		'create-chai-spec.create', 
+		'quick-node-spec.create', 
 		() => {
 			const currentFile = vscode.window.activeTextEditor.document
 			const fileExt = uriUtils.extname(currentFile.uri);

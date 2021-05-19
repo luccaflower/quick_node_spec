@@ -1,11 +1,11 @@
 {
-  "name": "create-chai-spec",
-  "displayName": "create_chai_spec",
-  "description": "create chai spec from file",
+  "name": "quick-node-spec",
+  "displayName": "Quick Node Spec",
+  "description": "Create test specifications with a simple command",
   "publisher": "lucca-flower",
   "repository": {
     "type": "git",
-    "url": "https://github.com/luccaflower/create_chai_spec_vscode.git"
+    "url": "https://github.com/luccaflower/quick_node_spec.git"
   },
   "version": "0.1.0",
   "engines": {
@@ -15,14 +15,14 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:create-chai-spec.create"
+    "onCommand:quick-node-spec.create"
   ],
   "main": "./extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "create-chai-spec.create",
-        "title": "Create Chai Spec"
+        "command": "quick-node-spec.create",
+        "title": "Create spec file"
       }
     ]
   },
