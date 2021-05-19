@@ -29,7 +29,8 @@
 				"--timeout",
 				"999999",
 				"--colors",
-				"${workspaceFolder}/test"
+				"${workspaceFolder}/test",
+				"--watch"
 			],
 			"internalConsoleOptions": "openOnSessionStart",
 			"name": "Mocha Tests",

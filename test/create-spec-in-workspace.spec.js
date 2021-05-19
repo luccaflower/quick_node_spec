@@ -18,7 +18,7 @@ describe('createSpecInWorkspace', () => {
     })
 
     afterEach(() => {
-        inMemoryStore = {}
+        inMemoryStore = {} 
     })
 })
 
@@ -70,5 +70,3 @@ const providersMock = () => {
         view: viewMock()
     }
 }
-
-
