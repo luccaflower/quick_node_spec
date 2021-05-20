@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/luccaflower/quick_node_spec.git"
   },
-  "version": "0.2.1",
+  "version": "0.3.0",
   "engines": {
     "vscode": "^1.56.0"
   },
@@ -38,7 +38,9 @@
             "type": "string",
             "default": "mocha-chai-bdd",
             "enum": [
-              "mocha-chai-bdd"
+              "mocha-chai-bdd",
+              "mocha-chai-tdd",
+              "jest"
             ],
             "description": "Template to use for the test specification"
           },
@@ -51,7 +53,9 @@
             "type": "string",
             "default": "mocha-chai-bdd",
             "enum": [
-              "mocha-chai-bdd"
+              "mocha-chai-bdd",
+              "mocha-chai-tdd",
+              "jest"
             ],
             "description": "Template to use for the test specification"
           },
