@@ -4,6 +4,8 @@ Simple command that creates a test specification file from a template.
 
 ![quick-node-spec-demo](https://user-images.githubusercontent.com/60967674/118962716-f51bb000-b965-11eb-8a5e-68d05b82e8b5.gif)
 
+When the command is run, the extention will create a new file in the specified folder, and open that file in a new view column next to the currently open file.
+
 ## Configuration
 
 This extension can be configured with the following settings:
