@@ -25,7 +25,7 @@ function activate(context) {
 			const currentFile = vscode.window.activeTextEditor.document
 			const fileExt = uriUtils.extname(currentFile.uri);
 			console.log("File extention: " + fileExt);
-			const config = cfg.config[fileExt]
+			const config = cfg.config()[fileExt]
 			const template = specs.templates[fileExt][config.template]
 			if (currentFile.isUntitled ) {
 				vscode
@@ -43,6 +43,7 @@ function activate(context) {
 				vscode
 					.window
 					.showErrorMessage("Specification template not found")
+				return
 			}
 
 			createSpecInWorkspace.facade({

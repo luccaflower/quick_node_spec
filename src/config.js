@@ -12,15 +12,17 @@ const configurations = () => {
 }
 
 
-exports.config = {
-    ".js": {
-        ext: configurations().javascript.ext,
-        testFolder: posixPath(vscodeVariables(configurations().testFolder)),
-        template: configurations().javascript.template
-    },
-    ".ts": {
-        ext: configurations().typescript.ext,
-        testFolder: posixPath(vscodeVariables(configurations().testFolder)),
-        template: configurations().typescript.template
+exports.config = () => {
+    return {
+        ".js": {
+            ext: configurations().javascript.ext,
+            testFolder: posixPath(vscodeVariables(configurations().testFolder)),
+            template: configurations().javascript.template
+        },
+        ".ts": {
+            ext: configurations().typescript.ext,
+            testFolder: posixPath(vscodeVariables(configurations().testFolder)),
+            template: configurations().typescript.template
+        }
     }
 }
