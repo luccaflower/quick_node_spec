@@ -1,3 +1,6 @@
 # TODO
 * More Templates
-    * Add support for Jest
+    * Jest 
+    * Jasmine
+ * Maybe ask before overwriting existing file?
+    
