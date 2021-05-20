@@ -2,4 +2,5 @@
 
 Simple command that creates a test specification file from a template in a given test folder.
 
-https://user-images.githubusercontent.com/60967674/118666660-a51cdc00-b7f3-11eb-870c-14047c492a6f.mp4
+![quick-node-spec-demo](https://user-images.githubusercontent.com/60967674/118962716-f51bb000-b965-11eb-8a5e-68d05b82e8b5.gif)
+
