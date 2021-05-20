@@ -12,3 +12,11 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - Added TypeScript support
 - Renamed to Quick Node Spec
+
+## 0.2.0
+
+- Added support for VSCode settings
+
+### 0.2.1
+
+- Config now updates correctly when VSCode settings are changed
